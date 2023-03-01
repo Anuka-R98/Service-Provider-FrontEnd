@@ -10,10 +10,13 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { BoardAdminComponent } from './components/admin/board-admin.component';
-import { BoardModeratorComponent } from './components/service-provider/board-moderator.component';
+import { BoardModeratorComponent } from './components/moderator/board-moderator.component';
 import { BoardUserComponent } from './components/user/board-user.component';
 
 import { httpInterceptorProviders } from './helpers/http.interceptor';
+import { ProviderComponent } from './components/provider/provider.component';
+import { ServiceComponent } from './components/service/service.component';
+import { RatingComponent } from './components/rating/rating.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { httpInterceptorProviders } from './helpers/http.interceptor';
     ProfileComponent,
     BoardAdminComponent,
     BoardModeratorComponent,
-    BoardUserComponent
+    BoardUserComponent,
+    ProviderComponent,
+    ServiceComponent,
+    RatingComponent
   ],
   imports: [
     BrowserModule,
