@@ -8,7 +8,7 @@ import {
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
-import { UserAuthService } from '../_services/user-auth.service';
+import { UserAuthService } from '../services/user-auth.service';
 import { Injectable } from '@angular/core';
 
 @Injectable()
