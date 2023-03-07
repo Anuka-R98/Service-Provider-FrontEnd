@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserAuthService } from '../../services/user-auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,8 @@ import { UserAuthService } from '../../services/user-auth.service';
 export class HeaderComponent implements OnInit {
   constructor(
     public router: Router,
-    public userAuthService: UserAuthService
+    public userAuthService: UserAuthService,
+    private toastr: ToastrService,
   ) {}
 
   ngOnInit(): void {}
@@ -22,6 +24,7 @@ export class HeaderComponent implements OnInit {
   public logout() {
     this.userAuthService.clear();
     this.router.navigate(['/home']);
+    this.toastr.warning('Logged Out!');
   }
 
 }

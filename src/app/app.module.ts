@@ -28,6 +28,8 @@ import { ListServicesComponent } from './components/list-services/list-services.
 import { ListRatingsComponent } from './components/list-ratings/list-ratings.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { Header2Component } from './components/header2/header2.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -59,7 +61,9 @@ import { Header2Component } from './components/header2/header2.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     AuthGuard,
