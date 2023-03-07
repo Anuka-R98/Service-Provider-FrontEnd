@@ -63,7 +63,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     RouterModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 4000,
+      positionClass: 'toast-top-center',
+      preventDuplicates: true,
+    }),
   ],
   providers: [
     AuthGuard,

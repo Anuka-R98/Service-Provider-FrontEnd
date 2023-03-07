@@ -9,7 +9,8 @@
   }
   .toast-top-center {
     top: 0;
-    right: 0;
+    left: 50%;
+    transform: translate(-50%, 10%);
     width: 100%;
   }
   .toast-bottom-center {
