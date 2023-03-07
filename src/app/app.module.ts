@@ -27,6 +27,7 @@ import { ListUsersComponent } from './components/list-users/list-users.component
 import { ListServicesComponent } from './components/list-services/list-services.component';
 import { ListRatingsComponent } from './components/list-ratings/list-ratings.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { Header2Component } from './components/header2/header2.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     ListServicesComponent,
     ListRatingsComponent,
     DashboardComponent,
+    Header2Component,
 
   ],
   imports: [

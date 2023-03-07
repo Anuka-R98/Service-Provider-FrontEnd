@@ -49,11 +49,19 @@ export class UserAuthService {
     return localStorage.getItem('id');
   }
 
+  public setUserName(userName: string) {
+    localStorage.setItem('userName', userName);
+  }
+
+  public getUserName(): string {
+    return localStorage.getItem('userName');
+  }
+
   public clear() {
     localStorage.clear();
   }
 
   public isLoggedIn() {
-    return this.getRoles() && this.getToken();
+    return this.getRoles() && this.getToken() && this.getUserName();
   }
 }

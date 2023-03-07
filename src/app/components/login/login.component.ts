@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
         this.userAuthService.setRoles(response.roles);
         this.userAuthService.setToken(response.token);
         this.userAuthService.setId(response.id);
+        this.userAuthService.setUserName(response.username);
         
         const role = response.roles[0];
         if (role === 'ROLE_ADMIN') {
