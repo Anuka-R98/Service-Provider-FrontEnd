@@ -28,6 +28,7 @@ import { ListServicesComponent } from './components/list-services/list-services.
 import { ListRatingsComponent } from './components/list-ratings/list-ratings.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +49,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     ListUsersComponent,
     ListServicesComponent,
     ListRatingsComponent,
-    DashboardComponent
+    DashboardComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,7 @@ import { ProviderComponent } from './components/provider/provider.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
 import { ListServicesComponent } from './components/list-services/list-services.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ServicesComponent } from './components/services/services.component';
 import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
@@ -33,6 +34,9 @@ const routes: Routes = [
   { path: 'user-list', component: ListUsersComponent },
   { path: 'service-list', component: ListServicesComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'services', component: ServicesComponent },
+
 ];
 
 @NgModule({
