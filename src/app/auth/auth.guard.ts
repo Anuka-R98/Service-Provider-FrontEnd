@@ -18,7 +18,6 @@ export class AuthGuard implements CanActivate {
   constructor(
     private userAuthService: UserAuthService,
     private router: Router,
-    private userService: UserService
   ) {}
 
   canActivate(
@@ -29,6 +28,7 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
+    
       console.log(this.userAuthService.getToken())
     if (this.userAuthService.getToken() !== null) {
       const role = route.data['roles'] as Array<string>;

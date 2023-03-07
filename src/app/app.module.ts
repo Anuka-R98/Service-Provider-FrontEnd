@@ -15,6 +15,18 @@ import { RouterModule } from '@angular/router';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { UserService } from './services/user.service';
+import { ProviderComponent } from './components/provider/provider.component';
+import { RatingsComponent } from './components/ratings/ratings.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { ServicesComponent } from './components/services/services.component';
+import { AddUserComponent } from './components/add-user/add-user.component';
+import { AddServicesComponent } from './components/add-services/add-services.component';
+import { AddRatingsComponent } from './components/add-ratings/add-ratings.component';
+import { ListUsersComponent } from './components/list-users/list-users.component';
+import { ListServicesComponent } from './components/list-services/list-services.component';
+import { ListRatingsComponent } from './components/list-ratings/list-ratings.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +36,19 @@ import { UserService } from './services/user.service';
     UserComponent,
     LoginComponent,
     HeaderComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
+    ProviderComponent,
+    RatingsComponent,
+    FooterComponent,
+    ProfileComponent,
+    ServicesComponent,
+    AddUserComponent,
+    AddServicesComponent,
+    AddRatingsComponent,
+    ListUsersComponent,
+    ListServicesComponent,
+    ListRatingsComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
