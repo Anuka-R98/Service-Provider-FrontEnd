@@ -10,6 +10,7 @@ import { ListUsersComponent } from './components/list-users/list-users.component
 import { ListServicesComponent } from './components/list-services/list-services.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ServicesComponent } from './components/services/services.component';
+import { AddUserComponent } from './components/add-user/add-user.component';
 import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'services', component: ServicesComponent },
+  { path: 'add-user', component: AddUserComponent },
 
 ];
 
