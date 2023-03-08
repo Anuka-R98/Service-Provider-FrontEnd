@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 import { User } from '../model/User';
 
 @Injectable({
@@ -27,7 +28,15 @@ export class UserService {
   }
 
   createUser(user: User) {
-    return this.httpclient.post(this.PATH_OF_API + '/signup', user);
+    return this.httpclient.post<Response>(this.PATH_OF_API + '/signup', user).pipe(
+      tap((response: Response) => {
+        console.log(response);
+      }),
+      catchError((error) => {
+        console.log(error);
+        return of(null);
+      })
+    );
   }
 
   public forUser() {
@@ -41,6 +50,5 @@ export class UserService {
       responseType: 'text',
     });
   }
-
 
 }

@@ -70,7 +70,7 @@ export class AddUserComponent implements OnInit {
       this.userService.createUser(newUser).subscribe((response: any) => {
         this.showAlert = true;
         const createdUser = response;
-        this.toastr.success('User created successfully!', 'Success');
+        this.toastr.success(`User ${createdUser.name} created successfully!`, 'Success');
         console.log(createdUser);
       }, error => {
         this.toastr.error('Error creating user!', 'Error');
