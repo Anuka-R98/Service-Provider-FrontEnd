@@ -1,7 +1,10 @@
 <div class="container">
-    <div class="d-flex justify-content-center align-items-center" style="height: 100vh">
-        <div class="container">
-            <h2>Add User</h2>
+  <div class="d-flex justify-content-center align-items-center" style="height: 100vh">
+
+    <div class="col-md-12">
+      <div class="card card-container">
+        <h1 style="text-align: center; padding-bottom: 20px;">Add User</h1>
+        <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
             <form [formGroup]="user">
               <div class="form-group">
                 <label for="username">Username</label>
@@ -53,7 +56,7 @@
                 <div *ngIf="user.get('role').invalid && (user.get('role').dirty || user.get('role').touched)" class="alert alert-danger">
                   <div *ngIf="user.get('role').errors.required">User role is required</div>
                 </div>
-              </div>
+              </div><br>
               <button
               type="button"
               class="btn btn-primary btn-lg"

@@ -59,15 +59,12 @@ export class AddUserComponent implements OnInit {
   }
 
   addUserByAdmin() {
-    console.log(this.user.value);
     if (this.user.valid) {
-
       const newUser: User = {
         username: this.user.value.username,
         email: this.user.value.email,
         password: this.user.value.password,
         roles: [this.user.value.role],
-        id: ''
       };
       
       this.userService.createUser(newUser).subscribe((response: any) => {
