@@ -1,46 +1,39 @@
+<div class="p-3 text-center bg-light" >
+  <h2 class="mb-3">Wellcome {{userName}}</h2>
+  <h4 class="mb-4">You have log into the system as an Admin</h4>
+  <p>The current date and time is: {{currentDate | date: 'medium'}}</p>
+</div>
 <div class="container">
-    <div class="text-center" style="padding: 20px; color: green;">
-        <h1 >You are Admin</h1>
-    </div>
-
-    <div class="d-flex justify-content-center align-items-center" style="height: 100vh">
-        
-        <div class="container">
-            <div class="row">
-              <div class="col-md">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp" class="card-img-top" alt="Sunset Over the Sea"/>
-                    <div class="card-body">
-                      <p class="card-text">MANAGE PROFILE</p>
-                    </div>
-                  </div>
-              </div>
-              <div class="col-md">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp" class="card-img-top" alt="Sunset Over the Sea"/>
-                    <div class="card-body">
-                      <p class="card-text">MANAGE USERS</p>
-                    </div>
-                  </div>
-              </div>
-              <div class="col-md">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp" class="card-img-top" alt="Sunset Over the Sea"/>
-                    <div class="card-body">
-                      <p class="card-text">MANAGE SERVICES</p>
-                    </div>
-                  </div>
-              </div>
-              <div class="col-md">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/182.webp" class="card-img-top" alt="Sunset Over the Sea"/>
-                    <div class="card-body">
-                      <p class="card-text">DASH BOARD CHARTS</p>
-                    </div>
-                  </div>
-              </div>
-            </div>
-        </div>
-
-    </div>
+  <div class="d-flex justify-content-center align-items-center" style="height: 100vh">
+    <section>
+    <div class="tile">
+          <input type="checkbox" name="option" id="option1">
+          <label for="option1" routerLink="">
+            <i class="fas fa-user"></i>
+              <h6>MANAGE PROFILE</h6>
+          </label>
+      </div>
+    <div class="tile">
+          <input type="checkbox" name="option" id="option2">
+          <label for="option2" routerLink="">
+            <i class="fas fa-users"></i>
+              <h6>MANAGE USERS</h6>
+          </label>
+      </div>
+      <div class="tile">
+          <input type="checkbox" name="option" id="option3">
+          <label for="option3" routerLink="">
+            <i class="fas fa-business-time"></i>
+              <h6>MANAGE SERVICES</h6>
+          </label>
+      </div>
+      <div class="tile">
+          <input type="checkbox" name="option" id="option4">
+          <label for="option4" routerLink="">
+            <i class="fas fa-square-poll-vertical"></i>
+              <h6>SUMMERY</h6>
+          </label>
+      </div>
+  </section>
+  </div>
 </div>
