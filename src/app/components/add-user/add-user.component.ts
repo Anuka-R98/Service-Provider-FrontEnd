@@ -34,6 +34,10 @@ export class AddUserComponent implements OnInit {
       Validators.minLength(6),
       Validators.maxLength(12),
     ]),
+    phoneNo: new FormControl('', [
+      Validators.required, 
+      Validators.pattern(/^\d{10}$/)
+    ]),
     role: new FormControl('user', Validators.required)
 
   });
@@ -64,6 +68,7 @@ export class AddUserComponent implements OnInit {
         username: this.user.value.username,
         email: this.user.value.email,
         password: this.user.value.password,
+        phoneNo: this.user.value.phoneNo,
         roles: [this.user.value.role],
       };
       

@@ -19,6 +19,6 @@ export class ProfileComponent implements OnInit {
   public userName = this.userAuthService.getUserName();
   public email = this.userAuthService.getEmail();
   public role = this.userAuthService.getRoles();
+  public phoneNo = this.userAuthService.getPhone();
   
-
 }

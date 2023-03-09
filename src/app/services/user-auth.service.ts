@@ -65,6 +65,14 @@ export class UserAuthService {
     return localStorage.getItem('email');
   }
 
+  public setPhone(phoneNo: string) {
+    localStorage.setItem('phoneNo', phoneNo);
+  }
+
+  public getPhone(): string {
+    return localStorage.getItem('phoneNo');
+  }
+
   public clear() {
     localStorage.clear();
   }
