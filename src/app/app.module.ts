@@ -30,6 +30,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { Header2Component } from './components/header2/header2.component';
 import { ToastrModule } from 'ngx-toastr';
 import { ListUsersComponent } from './components/list-users/list-users.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 
 ;
 
@@ -55,7 +56,8 @@ import { ListUsersComponent } from './components/list-users/list-users.component
     ListRatingsComponent,
     DashboardComponent,
     Header2Component,
-    ListUsersComponent
+    ListUsersComponent,
+    EditUserComponent
     
   ],
   imports: [
