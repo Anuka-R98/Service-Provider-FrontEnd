@@ -24,13 +24,12 @@ import { ServicesComponent } from './components/services/services.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { AddServicesComponent } from './components/add-services/add-services.component';
 import { AddRatingsComponent } from './components/add-ratings/add-ratings.component';
-import { ListUsersComponent } from './components/list-users/list-users.component';
 import { ListServicesComponent } from './components/list-services/list-services.component';
 import { ListRatingsComponent } from './components/list-ratings/list-ratings.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { Header2Component } from './components/header2/header2.component';
 import { ToastrModule } from 'ngx-toastr';
-import { ListUsers2Component } from './components/list-users2/list-users2.component';
+import { ListUsersComponent } from './components/list-users/list-users.component';
 
 ;
 
@@ -52,13 +51,12 @@ import { ListUsers2Component } from './components/list-users2/list-users2.compon
     AddUserComponent,
     AddServicesComponent,
     AddRatingsComponent,
-    ListUsersComponent,
     ListServicesComponent,
     ListRatingsComponent,
     DashboardComponent,
     Header2Component,
-    ListUsers2Component,
-
+    ListUsersComponent
+    
   ],
   imports: [
     BrowserModule,

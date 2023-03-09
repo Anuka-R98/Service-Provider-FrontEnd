@@ -43,7 +43,7 @@ export class ListUsersComponent implements OnInit {
     this.userService.deleteUser(this.deletingUserid).subscribe((response) => {
       console.log(response);
     });
-    alert('deleted Successfully');
+    this.toastr.success('User Deleted successfully!', 'Success');
     this.getUserList();
   }
 
@@ -51,6 +51,12 @@ export class ListUsersComponent implements OnInit {
     this.deletingUserid = id;
   }
 
+  public isUserOrProvider(user: any): boolean {
+    const hasRoleUser = user.roles.find(role => role.name === 'ROLE_USER');
+    const hasRoleProvider = user.roles.find(role => role.name === 'ROLE_SERVICE_PROVIDER');
+    return hasRoleUser || hasRoleProvider;
+  }
+  
   onclickEdit(user: User) {
 
       (this.editingUser.id = user.id);

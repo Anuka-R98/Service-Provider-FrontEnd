@@ -12,7 +12,6 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ServicesComponent } from './components/services/services.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { ListUsers2Component } from './components/list-users2/list-users2.component';
 import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
@@ -42,11 +41,7 @@ const routes: Routes = [
     canActivate:[AuthGuard], 
     data:{roles:['ROLE_ADMIN']}  
   },
-  { path: 'user-list2',
-  component: ListUsers2Component,
-  canActivate:[AuthGuard], 
-  data:{roles:['ROLE_ADMIN']}  
-},
+
   { path: 'login', component: LoginComponent },
   { path: 'forbidden', component: ForbiddenComponent },
   { path: 'service-list', component: ListServicesComponent },
