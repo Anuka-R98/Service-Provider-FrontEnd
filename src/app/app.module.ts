@@ -29,8 +29,9 @@ import { ListServicesComponent } from './components/list-services/list-services.
 import { ListRatingsComponent } from './components/list-ratings/list-ratings.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { Header2Component } from './components/header2/header2.component';
-
 import { ToastrModule } from 'ngx-toastr';
+import { ListUsers2Component } from './components/list-users2/list-users2.component';
+
 ;
 
 
@@ -56,6 +57,7 @@ import { ToastrModule } from 'ngx-toastr';
     ListRatingsComponent,
     DashboardComponent,
     Header2Component,
+    ListUsers2Component,
 
   ],
   imports: [

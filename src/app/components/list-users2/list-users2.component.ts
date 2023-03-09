@@ -4,11 +4,11 @@ import { User } from '../../model/User';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-list-users',
-  templateUrl: './list-users.component.html',
-  styleUrls: ['./list-users.component.css']
+  selector: 'app-list-users2',
+  templateUrl: './list-users2.component.html',
+  styleUrls: ['./list-users2.component.css']
 })
-export class ListUsersComponent implements OnInit {
+export class ListUsers2Component implements OnInit {
 
   userList!: User[];
 
@@ -43,7 +43,7 @@ export class ListUsersComponent implements OnInit {
     this.userService.deleteUser(this.deletingUserid).subscribe((response) => {
       console.log(response);
     });
-    alert('deleted Successfully');
+    this.toastr.success('User Deleted successfully!', 'Success');
     this.getUserList();
   }
 

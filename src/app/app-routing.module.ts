@@ -12,6 +12,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ServicesComponent } from './components/services/services.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ListUsers2Component } from './components/list-users2/list-users2.component';
 import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
@@ -31,14 +32,27 @@ const routes: Routes = [
     canActivate:[AuthGuard], 
     data:{roles:['ROLE_SERVICE_PROVIDER']} 
   },
+  { path: 'add-user',
+    component: AddUserComponent,
+    canActivate:[AuthGuard], 
+    data:{roles:['ROLE_ADMIN']} 
+   },
+  { path: 'user-list',
+    component: ListUsersComponent,
+    canActivate:[AuthGuard], 
+    data:{roles:['ROLE_ADMIN']}  
+  },
+  { path: 'user-list2',
+  component: ListUsers2Component,
+  canActivate:[AuthGuard], 
+  data:{roles:['ROLE_ADMIN']}  
+},
   { path: 'login', component: LoginComponent },
   { path: 'forbidden', component: ForbiddenComponent },
-  { path: 'user-list', component: ListUsersComponent },
   { path: 'service-list', component: ListServicesComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'services', component: ServicesComponent },
-  { path: 'add-user', component: AddUserComponent },
   { path: 'profile', component: ProfileComponent },
 
 ];
