@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { UserAuthService } from 'src/app/services/user-auth.service';
 import { UserService } from 'src/app/services/user.service';
@@ -35,7 +35,9 @@ export class EditUserComponent implements OnInit {
       Validators.required,
       Validators.minLength(6),
       Validators.maxLength(12),
+      this.matchPassword.bind(this)
     ]),
+    
     phoneNo: new FormControl('', [
       Validators.required, 
       Validators.pattern(/^\d{10}$/)
@@ -43,6 +45,16 @@ export class EditUserComponent implements OnInit {
     role: new FormControl('user', Validators.required)
 
   });
+
+  // custom validator function
+  matchPassword(control: AbstractControl) {
+    const password = control.root.get('password');
+    const confirmPassword = control.value;
+    if (password && confirmPassword && password.value !== confirmPassword) {
+      return { mismatchedPasswords: true };
+    }
+    return null;
+  }
 
   @Input() user1: User;
   user2: any;
@@ -67,7 +79,6 @@ export class EditUserComponent implements OnInit {
   saveUser() {
     console.log(this.user1.roles[0].name);
     if (this.userAuthService.roleMatch(['ROLE_ADMIN'])) {
-      
       this.updateUserByAdmin();
     } else {
       this.updateUserbyUser();
@@ -76,18 +87,14 @@ export class EditUserComponent implements OnInit {
 
   updateUserByAdmin() {
     if (this.user.valid) {
-   
+
       const userObject = new User();
-      console.log(this.user1.roles[0].name)
-      if (this.user1.roles[0].name == 'ROLE_SERVICE_PROVIDER') {
-        userObject.roles = ['provider'];
-      } else {
-        userObject.roles = ['user'];
-      }
+
       (userObject.username = this.user1.username);
       (userObject.email = this.user1.email);
       (userObject.password = this.user1.password);
       (userObject.phoneNo = this.user1.phoneNo);
+      (userObject.roles = [this.user.value.role]);
   
         this.userService.updateUserByAdmin(userObject, this.user1.id).subscribe((response) => {
           console.log(response);
@@ -107,12 +114,7 @@ export class EditUserComponent implements OnInit {
       (userObject.email = this.user1.email);
       (userObject.password = this.user1.password);
       (userObject.phoneNo = this.user1.phoneNo);
-  
-      if (this.user1.roles[0].name == 'ROLE_SERVICE_PROVIDER') {
-        userObject.roles = ['provider'];
-      } else {
-        userObject.roles = ['user'];
-      }
+      (userObject.roles = [this.user.value.role]);
       
       this.userService
         .updateUser(userObject, this.user1.id).subscribe((response) => {

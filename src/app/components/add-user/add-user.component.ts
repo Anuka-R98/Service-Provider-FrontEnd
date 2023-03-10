@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { UserAuthService } from '../../services/user-auth.service';
 import { User } from '../../model/User'
@@ -34,6 +34,7 @@ export class AddUserComponent implements OnInit {
       Validators.required,
       Validators.minLength(6),
       Validators.maxLength(12),
+      this.matchPassword.bind(this)
     ]),
     phoneNo: new FormControl('', [
       Validators.required, 
@@ -42,6 +43,16 @@ export class AddUserComponent implements OnInit {
     role: new FormControl('user', Validators.required)
 
   });
+
+   // custom validator function
+  matchPassword(control: AbstractControl) {
+    const password = control.root.get('password');
+    const confirmPassword = control.value;
+    if (password && confirmPassword && password.value !== confirmPassword) {
+      return { mismatchedPasswords: true };
+    }
+    return null;
+  }
 
   showAlert = false;
   constructor(

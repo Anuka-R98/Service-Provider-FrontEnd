@@ -46,21 +46,37 @@
                 <div *ngIf="user.get('phoneNo').errors.pattern">Invalid Phone number format</div>
               </div>
             </div>
+
             <div class="form-group" *ngIf="userAuthService.roleMatch(['ROLE_ADMIN'])">
               <label for="role">User Role</label><br>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" id="user" value="user" formControlName="role"
-                [checked]="user1.roles && user1.roles[0].name == 'ROLE_USER'">
+                <input 
+                 class="form-check-input" 
+                 type="radio" 
+                 id="user" 
+                 value="user" 
+                 formControlName="role"
+                 [checked]="user1.roles && user1.roles[0].name == 'ROLE_USER'">
                 <label class="form-check-label" for="user">User</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" id="serviceProvider" value="provider" formControlName="role"
-                [checked]="user1.roles && user1.roles[0].name == 'ROLE_SERVICE_PROVIDER'">
+                <input 
+                 class="form-check-input" 
+                 type="radio" 
+                 id="serviceProvider" 
+                 value="provider" 
+                 formControlName="role" 
+                 [checked]="user1.roles && user1.roles[0].name == 'ROLE_SERVICE_PROVIDER'">
                 <label class="form-check-label" for="serviceProvider">Service Provider</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" id="admin" value="admin" formControlName="role"
-                [checked]="user1.roles && user1.roles[0].name == 'ROLE_ADMIN'">
+                <input 
+                 class="form-check-input" 
+                 type="radio" 
+                 id="admin" 
+                 value="admin" 
+                 formControlName="role"
+                 [checked]="user1.roles && user1.roles[0].name == 'ROLE_ADMIN'">
                 <label class="form-check-label" for="admin">Admin</label>
               </div>
               <div *ngIf="user.get('role').invalid && (user.get('role').dirty || user.get('role').touched)" class="alert alert-danger">
