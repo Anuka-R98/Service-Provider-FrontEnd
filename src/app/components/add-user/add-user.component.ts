@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 import { UserAuthService } from '../../services/user-auth.service';
 import { User } from '../../model/User'
 import { UserService } from './../../services/user.service'; 
@@ -82,7 +83,7 @@ export class AddUserComponent implements OnInit {
       });
 
     } else {
-      alert(" User details are invalid ! ");
+      this.toastr.error('User details are invalid !', 'Error');
     }
   }
 }

@@ -34,7 +34,7 @@
                         <td><li *ngFor="let role of user.roles">{{ role.name }}</li></td>
 
                         <td *ngIf="isUserOrProvider(user)">
-                            <a href="#updateModal" class="edit" data-bs-toggle="modal">
+                            <a href="#updateModal" class="edit" data-bs-toggle="modal" (click)="onclickEdit(user)">
                                 <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
                             </a>
                             <a href="#deleteModal" class="delete" data-bs-toggle="modal" (click)="onclickDelete(user.id)">
@@ -51,7 +51,7 @@
     </div>        
 </div>
 
-<!-- Modal -->
+<!-- Update Modal -->
 <div
     class="modal fade"
     id="updateModal"
@@ -81,7 +81,8 @@
       </div>
     </div>
   </div>
-  
+
+  <!-- Delete Modal -->
   <div
     class="modal fade"
     id="deleteModal"
