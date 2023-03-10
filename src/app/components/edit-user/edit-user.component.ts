@@ -67,6 +67,7 @@ export class EditUserComponent implements OnInit {
   saveUser() {
     console.log(this.user1.roles[0].name);
     if (this.userAuthService.roleMatch(['ROLE_ADMIN'])) {
+      
       this.updateUserByAdmin();
     } else {
       this.updateUserbyUser();
@@ -75,12 +76,13 @@ export class EditUserComponent implements OnInit {
 
   updateUserByAdmin() {
     if (this.user.valid) {
-
+   
       const userObject = new User();
+      console.log(this.user1.roles[0].name)
       if (this.user1.roles[0].name == 'ROLE_SERVICE_PROVIDER') {
-        userObject.roles.push({ name: 'provider' });
+        userObject.roles = ['provider'];
       } else {
-        userObject.roles.push({ name: 'provider' });
+        userObject.roles = ['user'];
       }
       (userObject.username = this.user1.username);
       (userObject.email = this.user1.email);
@@ -88,6 +90,7 @@ export class EditUserComponent implements OnInit {
       (userObject.phoneNo = this.user1.phoneNo);
   
         this.userService.updateUserByAdmin(userObject, this.user1.id).subscribe((response) => {
+          console.log(response);
             this.showAlert = true;
             this.toastr.success(`User updated successfully!`, 'Success');
           },error => {
@@ -106,12 +109,14 @@ export class EditUserComponent implements OnInit {
       (userObject.phoneNo = this.user1.phoneNo);
   
       if (this.user1.roles[0].name == 'ROLE_SERVICE_PROVIDER') {
-        userObject.roles.push({ name: 'provider' });
+        userObject.roles = ['provider'];
       } else {
-        userObject.roles.push({ name: 'provider' });
+        userObject.roles = ['user'];
       }
+      
       this.userService
         .updateUser(userObject, this.user1.id).subscribe((response) => {
+          
           this.showAlert = true;
           this.toastr.success(`User updated successfully!`, 'Success');
         },error => {
