@@ -132,3 +132,7 @@ input[type="radio"] {
   align-items: center;
   justify-content: space-between;
 }
+.btn-primary:hover {
+  background-color: #fca80d;
+  border-color: #FFA500;
+}

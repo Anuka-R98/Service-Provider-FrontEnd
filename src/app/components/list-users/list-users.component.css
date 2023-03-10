@@ -16,7 +16,7 @@ body {
 }
 .table-title {        
     padding-bottom: 15px;
-    background: #435d7d;
+    background: #4895a4;
     color: #ffffff;
     padding: 16px 30px;
     margin: -20px -25px 10px;
@@ -144,17 +144,17 @@ th {
     font-size: 1.2em;
   }	
   .admin {
-    color: red;
+    color: rgb(255, 65, 65);
     font-weight: bold;
   }
   
   .user {
-    color: rgb(44, 169, 44);
+    color: rgb(46, 209, 46);
     font-weight: bold;
   }
   
   .provider {
-    color: blue;
+    color: rgb(0, 106, 255);
     font-weight: bold;
   }
   

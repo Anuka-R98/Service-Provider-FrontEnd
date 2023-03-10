@@ -26,8 +26,7 @@ import { AddServicesComponent } from './components/add-services/add-services.com
 import { AddRatingsComponent } from './components/add-ratings/add-ratings.component';
 import { ListServicesComponent } from './components/list-services/list-services.component';
 import { ListRatingsComponent } from './components/list-ratings/list-ratings.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { Header2Component } from './components/header2/header2.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';                                                                                                                  
 import { ToastrModule } from 'ngx-toastr';
 import { ListUsersComponent } from './components/list-users/list-users.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
@@ -55,7 +54,6 @@ import { EditUserComponent } from './components/edit-user/edit-user.component';
     ListServicesComponent,
     ListRatingsComponent,
     DashboardComponent,
-    Header2Component,
     ListUsersComponent,
     EditUserComponent
     

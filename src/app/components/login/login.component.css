@@ -30,3 +30,7 @@ label {
     -webkit-border-radius: 50%;
     border-radius: 50%;
   }
+  .btn-primary:hover {
+    background-color: #fca80d;
+    border-color: #FFA500;
+  }
