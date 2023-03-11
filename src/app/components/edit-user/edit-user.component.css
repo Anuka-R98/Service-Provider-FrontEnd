@@ -70,9 +70,9 @@
   }
   
   .btn-primary:hover {
-    background-color: #2980b9;
+    background-color: #fca80d;
+    border-color: #FFA500;
   }
-  
   @media (max-width: 767px) {
     .card-container {
       padding: 20px;
