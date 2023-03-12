@@ -35,7 +35,7 @@ export class EditUserComponent implements OnInit {
       Validators.required,
       Validators.minLength(6),
       Validators.maxLength(12),
-      this.matchPassword.bind(this)
+      // this.matchPassword.bind(this)
     ]),
     
     phoneNo: new FormControl('', [

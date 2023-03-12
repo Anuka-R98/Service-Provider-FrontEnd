@@ -14,7 +14,6 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private userAuthService: UserAuthService,
-    private router: Router
   ) { }
   
   ngOnInit(): void {
@@ -24,18 +23,12 @@ export class ProfileComponent implements OnInit {
     this.user.email = this.userAuthService.getEmail();
     this.user.phoneNo = this.userAuthService.getPhone();
     this.user.id = this.userAuthService.getId();
+    this.user.roles = this.userAuthService.getRoles();
   }
   
-  // to display info on profile component
   public username = this.userAuthService.getUserName();
   public email = this.userAuthService.getEmail();
   public role = this.userAuthService.getRoles();
   public phoneNo = this.userAuthService.getPhone();
-
-  // navigates with passing user object
-  public navigateToEditUser(): void {
-    this.router.navigate(['/edit-user'], { state: { user1: this.user } });
-    console.log(this.user)
-  }
   
 }

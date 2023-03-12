@@ -62,7 +62,6 @@ export class ListUsersComponent implements OnInit {
   onclickEdit(user: User) {
       (this.editingUser.id = user.id);
       (this.editingUser.username = user.username),
-      (this.editingUser.password = user.password),
       (this.editingUser.email = user.email),
       (this.editingUser.phoneNo = user.phoneNo),
       (this.editingUser.roles = user.roles)
