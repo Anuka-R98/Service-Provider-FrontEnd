@@ -12,6 +12,8 @@ export class ListUsersComponent implements OnInit {
 
   userList!: User[];
 
+  searchTerm: string = '';
+
   editingUser: any = {
     id: '',
     username: '',

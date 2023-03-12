@@ -10,9 +10,9 @@
                       <div class="col-md-4 gradient-custom text-center text-white"
                         style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
                         <i class="fas fa-user-circle fa-5x my-5"></i>
-                        <h5>{{userName}}</h5>
+                        <h5>{{username}}</h5>
                         <p>{{role}}</p>
-                        <i class="far fa-edit mb-5" routerLink="/edit-user"></i>
+                        <i class="far fa-edit mb-5" (click)="navigateToEditUser()"></i>
                       </div>
                       <div class="col-md-8">
                         <div class="card-body p-4">
