@@ -46,6 +46,7 @@ export class UserService {
   }
 
   updateUser(user: User, id: string) {
+    console.log(user, id);
     return this.httpclient.put(`${this.PATH_OF_API_USER}/${id}`, user);
   }
 

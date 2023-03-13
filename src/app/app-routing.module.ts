@@ -42,6 +42,16 @@ const routes: Routes = [
     canActivate:[AuthGuard], 
     data:{roles:['ROLE_ADMIN']}  
   },
+  { path: 'edit-user',
+    component: EditUserComponent,
+    canActivate:[AuthGuard], 
+    data:{roles:['ROLE_ADMIN', 'ROLE_SERVICE_PROVIDER', 'ROLE_USER']}
+  },
+  { path: 'profile', 
+    component: ProfileComponent,
+    // canActivate:[AuthGuard], 
+    // data:{roles:['ROLE_ADMIN', 'ROLE_SERVICE_PROVIDER', 'ROLE_USER']}
+ },
 
   { path: 'login', component: LoginComponent },
   { path: 'forbidden', component: ForbiddenComponent },
@@ -50,7 +60,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'services', component: ServicesComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'edit-user', component: EditUserComponent },
+  
 
 ];
 
