@@ -10,7 +10,6 @@ import { ServiceService } from 'src/app/services/service.service';
 export class ServicesComponent implements OnInit {
 
   ServiceList!: Service[];
-  deletingExerciseId: string;
 
   constructor(
    private serviceService : ServiceService
@@ -26,10 +25,10 @@ export class ServicesComponent implements OnInit {
     });
   }
 
-  getRandomColor() {
-    const colors = ['#FF5733', '#C70039', '#900C3F', '#581845', '#FFC300', '#DAF7A6'];
-    const randomColor1 = colors[Math.floor(Math.random() * colors.length)];
-    const randomColor2 = colors[Math.floor(Math.random() * colors.length)];
-    return `${randomColor1}, ${randomColor2}`;
-  }
+  // getRandomColor() {
+  //   const colors = ['#FF5733', '#C70039', '#900C3F', '#581845', '#FFC300', '#DAF7A6'];
+  //   const randomColor1 = colors[Math.floor(Math.random() * colors.length)];
+  //   const randomColor2 = colors[Math.floor(Math.random() * colors.length)];
+  //   return `${randomColor1}, ${randomColor2}`;
+  // }
 }

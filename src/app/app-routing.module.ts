@@ -51,7 +51,12 @@ const routes: Routes = [
     component: ProfileComponent,
     // canActivate:[AuthGuard], 
     // data:{roles:['ROLE_ADMIN', 'ROLE_SERVICE_PROVIDER', 'ROLE_USER']}
- },
+  },
+  { path: 'service-list', 
+    component: ListServicesComponent,
+    canActivate:[AuthGuard], 
+    data:{roles:['ROLE_ADMIN']}  
+   },
 
   { path: 'login', component: LoginComponent },
   { path: 'forbidden', component: ForbiddenComponent },

@@ -48,17 +48,19 @@ export class ListUsersComponent implements OnInit {
     this.toastr.success('User Deleted successfully!', 'Success');
     this.getUserList();
   }
-
+  /* delete user */
   onclickDelete(id: string) {
     this.deletingUserid = id;
   }
 
+  /* role checking, used in to hide/apear actions to perform */
   public isUserOrProvider(user: any): boolean {
     const hasRoleUser = user.roles.find(role => role.name === 'ROLE_USER');
     const hasRoleProvider = user.roles.find(role => role.name === 'ROLE_SERVICE_PROVIDER');
     return hasRoleUser || hasRoleProvider;
   }
   
+  /* get user data to edit action */
   onclickEdit(user: User) {
       (this.editingUser.id = user.id);
       (this.editingUser.username = user.username),
