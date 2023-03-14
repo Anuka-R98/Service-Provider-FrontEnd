@@ -1,6 +1,6 @@
-.card {
-  height: 400px;
-  width: 300px;
+.card-body {
+  max-height: 400px;
+  max-width: 400px;
   margin-bottom: 20px;
 }
 @media (min-width: 768px) {
