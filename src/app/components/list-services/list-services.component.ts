@@ -53,7 +53,9 @@ export class ListServicesComponent implements OnInit {
       (this.editingService.id = service.id);
       (this.editingService.name = service.name),
       (this.editingService.description = service.description),
-      (this.editingService.ratings = service.averageRating)
+      (this.editingService.averageRating = service.averageRating)
+
+      console.log(this.editingService);
   }
 
 }

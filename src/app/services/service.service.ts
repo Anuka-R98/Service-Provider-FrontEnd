@@ -11,6 +11,8 @@ providedIn: 'root'
 export class ServiceService {
 
 private PATH_OF_SERVICE = 'http://localhost:8080/home/services';
+private PATH_OF_SERVICE_2 = 'http://localhost:8080/home/admin/services';
+private PATH_OF_SERVICE_3 = 'http://localhost:8080/home/provider/services';
 
 constructor(private httpClient: HttpClient) { }
 
@@ -38,8 +40,12 @@ createService(service: Service) {
   );
 }
 
+updateServiceByAdmin(id: string, service: Service) {
+  return this.httpClient.put(`${this.PATH_OF_SERVICE_2}/${id}`, service);
+}
+
 updateService(id: string, service: Service) {
-  return this.httpClient.put(`${this.PATH_OF_SERVICE}/${id}`, service);
+  return this.httpClient.put(`${this.PATH_OF_SERVICE_3}/${id}`, service);
 }
 
 deleteService(id: string) {
