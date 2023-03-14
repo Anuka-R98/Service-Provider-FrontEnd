@@ -15,11 +15,7 @@ export class AdminComponent implements OnInit {
   public currentDate: Date;
   public userName = this.userAuthService.getUserName();
 
-  ngOnInit() {
-    setInterval(() => {
-      this.currentDate = new Date();
-    }, 1000);
-  }
+  ngOnInit() {}
 
   
 }
