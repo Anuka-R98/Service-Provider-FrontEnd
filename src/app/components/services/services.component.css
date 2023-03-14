@@ -1,0 +1,12 @@
+.card {
+  height: 400px;
+  width: 300px;
+  margin-bottom: 20px;
+}
+@media (min-width: 768px) {
+  .card {
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+  }
+}

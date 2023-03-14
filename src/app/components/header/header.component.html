@@ -34,7 +34,8 @@
 
       </ul>
       <div class="navbar-nav">
-        <span class="nav-link active">{{userAuthService.getUserName()}}</span>
+        <span class="nav-link active">
+          <i class="fas fa-user"></i>&nbsp;&nbsp;{{userAuthService.getUserName()}}</span>
         <button *ngIf="!isLoggedIn()" type="button" class="btn btn-success" routerLink="/login">Login</button>
         <button *ngIf="isLoggedIn()" type="button" class="btn btn-danger" (click)="logout()">Logout</button>
         <li class="nav-item">

@@ -15,3 +15,10 @@
   .navbar-nav .nav-link.active {
     margin-right: 10px;
   }
+  .nav-link {
+    margin-right: 10px;
+  }
+  
+  .nav-item:last-child .nav-link {
+    margin-right: 0;
+  }
