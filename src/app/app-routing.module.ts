@@ -8,15 +8,15 @@ import { UserComponent } from './components/user/user.component';
 import { ProviderComponent } from './components/provider/provider.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
 import { ListServicesComponent } from './components/list-services/list-services.component';
+import { AddUserComponent } from './components/add-user/add-user.component';
+import { AddServicesComponent } from './components/add-services/add-services.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ServicesComponent } from './components/services/services.component';
-import { AddUserComponent } from './components/add-user/add-user.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
   { path: 'admin', 
     component: AdminComponent, 
     canActivate:[AuthGuard], 
@@ -36,7 +36,12 @@ const routes: Routes = [
     component: AddUserComponent,
     canActivate:[AuthGuard], 
     data:{roles:['ROLE_ADMIN']} 
-   },
+  },
+  { path: 'add-service',
+    component: AddServicesComponent,
+    canActivate:[AuthGuard], 
+    data:{roles:['ROLE_ADMIN']} 
+  },
   { path: 'user-list',
     component: ListUsersComponent,
     canActivate:[AuthGuard], 
@@ -49,15 +54,15 @@ const routes: Routes = [
   },
   { path: 'profile', 
     component: ProfileComponent,
-    // canActivate:[AuthGuard], 
-    // data:{roles:['ROLE_ADMIN', 'ROLE_SERVICE_PROVIDER', 'ROLE_USER']}
+  // canActivate:[AuthGuard], 
+  // data:{roles:['ROLE_ADMIN', 'ROLE_SERVICE_PROVIDER', 'ROLE_USER']}
   },
   { path: 'service-list', 
     component: ListServicesComponent,
     canActivate:[AuthGuard], 
     data:{roles:['ROLE_ADMIN']}  
-   },
-
+  },
+  { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'forbidden', component: ForbiddenComponent },
   { path: 'service-list', component: ListServicesComponent },

@@ -23,10 +23,6 @@ export class AddServicesComponent implements OnInit {
       Validators.minLength(10),
       Validators.maxLength(500)
     ]),
-    email: new FormControl('', [
-      Validators.required, 
-      Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')
-    ]),
     phoneNo: new FormControl('', [
       Validators.required, 
       Validators.pattern(/^\d{10}$/)
@@ -43,7 +39,7 @@ export class AddServicesComponent implements OnInit {
   }
 
   saveService() {
-    
+
     if(this.service.valid) {
       
       const newService : Service = {
