@@ -25,10 +25,4 @@ export class ServicesComponent implements OnInit {
     });
   }
 
-  // getRandomColor() {
-  //   const colors = ['#FF5733', '#C70039', '#900C3F', '#581845', '#FFC300', '#DAF7A6'];
-  //   const randomColor1 = colors[Math.floor(Math.random() * colors.length)];
-  //   const randomColor2 = colors[Math.floor(Math.random() * colors.length)];
-  //   return `${randomColor1}, ${randomColor2}`;
-  // }
 }

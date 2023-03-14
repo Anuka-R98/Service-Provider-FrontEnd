@@ -9,13 +9,19 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+  public currentDate: Date;
+
   constructor(
     public router: Router,
     public userAuthService: UserAuthService,
     private toastr: ToastrService,
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    setInterval(() => {
+      this.currentDate = new Date();
+    }, 1000);
+  }
 
   public isLoggedIn() {
     return this.userAuthService.isLoggedIn();
@@ -28,3 +34,4 @@ export class HeaderComponent implements OnInit {
   }
 
 }
+
