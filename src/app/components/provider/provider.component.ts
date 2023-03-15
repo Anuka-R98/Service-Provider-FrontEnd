@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserAuthService } from 'src/app/services/user-auth.service';
 
 @Component({
   selector: 'app-provider',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProviderComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(
+    private userAuthService: UserAuthService,
+  ) { }
+  
+  public userName = this.userAuthService.getUserName();
+  
   ngOnInit(): void {
   }
-
+  
 }
+

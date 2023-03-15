@@ -10,10 +10,11 @@ import { ListUsersComponent } from './components/list-users/list-users.component
 import { ListServicesComponent } from './components/list-services/list-services.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { AddServicesComponent } from './components/add-services/add-services.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
+import { EditServiceComponent } from './components/edit-service/edit-service.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ServicesComponent } from './components/services/services.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
@@ -40,7 +41,12 @@ const routes: Routes = [
   { path: 'add-service',
     component: AddServicesComponent,
     canActivate:[AuthGuard], 
-    data:{roles:['ROLE_ADMIN']} 
+    data:{roles:['ROLE_ADMIN', 'ROLE_SERVICE_PROVIDER']} 
+  },
+  { path: 'edit-service',
+    component: EditServiceComponent,
+    canActivate:[AuthGuard], 
+    data:{roles:['ROLE_ADMIN', 'ROLE_SERVICE_PROVIDER']} 
   },
   { path: 'user-list',
     component: ListUsersComponent,
@@ -54,8 +60,8 @@ const routes: Routes = [
   },
   { path: 'profile', 
     component: ProfileComponent,
-  // canActivate:[AuthGuard], 
-  // data:{roles:['ROLE_ADMIN', 'ROLE_SERVICE_PROVIDER', 'ROLE_USER']}
+    canActivate:[AuthGuard], 
+    data:{roles:['ROLE_ADMIN', 'ROLE_SERVICE_PROVIDER', 'ROLE_USER']}
   },
   { path: 'service-list', 
     component: ListServicesComponent,

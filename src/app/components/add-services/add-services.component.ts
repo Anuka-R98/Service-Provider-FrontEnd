@@ -45,6 +45,7 @@ export class AddServicesComponent implements OnInit {
       const newService : Service = {
         name: this.service.value.name,
         description: this.service.value.description,
+        phoneNo: this.service.value.phoneNo,
         averageRating: 0
       };
 
