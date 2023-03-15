@@ -32,6 +32,7 @@ import { ListUsersComponent } from './components/list-users/list-users.component
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { EditServiceComponent } from './components/edit-service/edit-service.component';
 import { ProviderServicesComponent } from './components/provider-services/provider-services.component';
+import { ViewServiceComponent } from './components/view-service/view-service.component';
 
 ;
 
@@ -59,7 +60,8 @@ import { ProviderServicesComponent } from './components/provider-services/provid
     ListUsersComponent,
     EditUserComponent,
     EditServiceComponent,
-    ProviderServicesComponent
+    ProviderServicesComponent,
+    ViewServiceComponent
     
   ],
   imports: [

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Service } from 'src/app/model/Service';
 import { ServiceService } from 'src/app/services/service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-services',
@@ -12,7 +13,8 @@ export class ServicesComponent implements OnInit {
   ServiceList!: Service[];
 
   constructor(
-   private serviceService : ServiceService
+   private serviceService : ServiceService,
+   private router: Router
   ) { }
 
   ngOnInit(): void {
