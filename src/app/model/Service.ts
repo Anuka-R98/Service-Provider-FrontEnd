@@ -1,4 +1,4 @@
-import { User } from './User';
+
 import { Rating } from './Rating';
 
 export interface Service {
@@ -7,6 +7,7 @@ export interface Service {
     description: string;
     averageRating?: number;
     phoneNo: string;
+    userId?: string;
+
     // ratings?: Rating[];
-    // user?: User;
   }

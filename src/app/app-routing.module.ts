@@ -41,7 +41,7 @@ const routes: Routes = [
   { path: 'add-service',
     component: AddServicesComponent,
     canActivate:[AuthGuard], 
-    data:{roles:['ROLE_ADMIN']} 
+    data:{roles:['ROLE_ADMIN', 'ROLE_SERVICE_PROVIDER']} 
   },
   { path: 'edit-service',
     component: EditServiceComponent,
@@ -60,8 +60,8 @@ const routes: Routes = [
   },
   { path: 'profile', 
     component: ProfileComponent,
-  // canActivate:[AuthGuard], 
-  // data:{roles:['ROLE_ADMIN', 'ROLE_SERVICE_PROVIDER', 'ROLE_USER']}
+    canActivate:[AuthGuard], 
+    data:{roles:['ROLE_ADMIN', 'ROLE_SERVICE_PROVIDER', 'ROLE_USER']}
   },
   { path: 'service-list', 
     component: ListServicesComponent,

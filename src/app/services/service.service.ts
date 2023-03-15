@@ -40,6 +40,32 @@ createService(service: Service) {
   );
 }
 
+// createService(userId: string, service: Service) {
+//   const request = { userId, ...service };
+//   return this.httpClient.post<Response>(this.PATH_OF_SERVICE, request).pipe(
+//     tap((response: Response) => {
+//       console.log(response);
+//     }),
+//     catchError((error) => {
+//       console.log(error);
+//       return of(null);
+//     })
+//   );
+// } 
+
+// getAllServicesForUser(userId: string) {
+//   const url = `${this.PATH_OF_SERVICE}/userid/${userId}`;
+//   return this.httpClient.get(url).pipe(
+//     tap((response: Response) => {
+//       console.log(response);
+//     }),
+//     catchError((error) => {
+//       console.log(error);
+//       return of(null);
+//     })
+//   );
+// }
+
 updateServiceByAdmin(id: string, service: Service) {
   return this.httpClient.put(`${this.PATH_OF_SERVICE_2}/${id}`, service);
 }
