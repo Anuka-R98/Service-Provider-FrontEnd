@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Service } from '../model/Service';
 import { catchError, tap } from 'rxjs/operators';
@@ -16,9 +16,6 @@ private PATH_OF_SERVICE_3 = 'http://localhost:8080/home/provider/services';
 
 constructor(private httpClient: HttpClient) { }
 
-// getServiceList(): Observable<Service[]> {
-//   return this.httpClient.get<Service[]>(`${this.PATH_OF_SERVICE}/all`);
-// }
 
 getAllServices() {
   return this.httpClient.get(`${this.PATH_OF_SERVICE}/all`);
@@ -28,8 +25,12 @@ getServiceById(id: String) {
   return this.httpClient.get(`${this.PATH_OF_SERVICE}/id/${id}`);
 }
 
-createService(service: Service) {
-  return this.httpClient.post<Response>(this.PATH_OF_SERVICE, service).pipe(
+createService(userId: string, service: Service) {
+  const headers = new HttpHeaders({
+    'userId': userId
+  });
+  
+  return this.httpClient.post<Response>(this.PATH_OF_SERVICE, service, { headers }).pipe(
     tap((response: Response) => {
       console.log(response);
     }),
@@ -40,31 +41,18 @@ createService(service: Service) {
   );
 }
 
-// createService(userId: string, service: Service) {
-//   const request = { userId, ...service };
-//   return this.httpClient.post<Response>(this.PATH_OF_SERVICE, request).pipe(
-//     tap((response: Response) => {
-//       console.log(response);
-//     }),
-//     catchError((error) => {
-//       console.log(error);
-//       return of(null);
-//     })
-//   );
-// } 
-
-// getAllServicesForUser(userId: string) {
-//   const url = `${this.PATH_OF_SERVICE}/userid/${userId}`;
-//   return this.httpClient.get(url).pipe(
-//     tap((response: Response) => {
-//       console.log(response);
-//     }),
-//     catchError((error) => {
-//       console.log(error);
-//       return of(null);
-//     })
-//   );
-// }
+getAllServicesForUser(userId: string) {
+  const url = `${this.PATH_OF_SERVICE}/userid/${userId}`;
+  return this.httpClient.get(url).pipe(
+    tap((response: Response) => {
+      console.log(response);
+    }),
+    catchError((error) => {
+      console.log(error);
+      return of(null);
+    })
+  );
+}
 
 updateServiceByAdmin(id: string, service: Service) {
   return this.httpClient.put(`${this.PATH_OF_SERVICE_2}/${id}`, service);

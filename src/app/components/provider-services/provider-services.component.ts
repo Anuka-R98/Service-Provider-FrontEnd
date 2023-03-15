@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Service } from 'src/app/model/Service';
 import { ServiceService } from 'src/app/services/service.service';
+import { UserAuthService } from 'src/app/services/user-auth.service';
 
 @Component({
-  selector: 'app-list-services',
-  templateUrl: './list-services.component.html',
-  styleUrls: ['./list-services.component.css']
+  selector: 'app-provider-services',
+  templateUrl: './provider-services.component.html',
+  styleUrls: ['./provider-services.component.css']
 })
-export class ListServicesComponent implements OnInit {
+export class ProviderServicesComponent implements OnInit {
 
   ServiceList!: Service[];
   deletingServiceId: string;
@@ -18,22 +19,22 @@ export class ListServicesComponent implements OnInit {
     name: '',
     description: '',
     averageRating: '',
-    // user: '',
-    // ratings: [],
   };
 
   constructor(
    private serviceService : ServiceService,
+   private userAuthService : UserAuthService,
    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
-    this.getAllServices();
+    this.getAllProviderServices();
   }
 
-  getAllServices() {
-    this.serviceService.getAllServices().subscribe((response: any) => {
-      this.ServiceList = response;
+  getAllProviderServices() {
+    const userId = this.userAuthService.getId();
+    this.serviceService.getAllServicesForUser(userId).subscribe((response: any) => {
+    this.ServiceList = response;
     });
   }
 
@@ -42,7 +43,7 @@ export class ListServicesComponent implements OnInit {
       console.log(response);
     });
     this.toastr.success('Service Deleted successfully!', 'Success');
-    this.getAllServices();
+    this.getAllProviderServices();
   }
 
   onclickDelete(id: string) {
@@ -54,9 +55,7 @@ export class ListServicesComponent implements OnInit {
       (this.editingService.name = service.name),
       (this.editingService.description = service.description),
       (this.editingService.phoneNo = service.phoneNo),
-      (this.editingService.averageRating = service.averageRating),
-      
-      console.log(this.editingService);
+      (this.editingService.averageRating = service.averageRating)
   }
 
 }
