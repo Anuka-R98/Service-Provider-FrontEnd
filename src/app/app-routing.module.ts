@@ -15,6 +15,7 @@ import { EditServiceComponent } from './components/edit-service/edit-service.com
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ServicesComponent } from './components/services/services.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ProviderServicesComponent } from './components/provider-services/provider-services.component';
 import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
@@ -67,6 +68,11 @@ const routes: Routes = [
     component: ListServicesComponent,
     canActivate:[AuthGuard], 
     data:{roles:['ROLE_ADMIN']}  
+  },
+  { path: 'provider-service-list', 
+    component: ProviderServicesComponent,
+    canActivate:[AuthGuard], 
+    data:{roles:['ROLE_SERVICE_PROVIDER']}  
   },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },

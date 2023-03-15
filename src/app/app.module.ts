@@ -31,6 +31,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { ListUsersComponent } from './components/list-users/list-users.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { EditServiceComponent } from './components/edit-service/edit-service.component';
+import { ProviderServicesComponent } from './components/provider-services/provider-services.component';
 
 ;
 
@@ -57,7 +58,8 @@ import { EditServiceComponent } from './components/edit-service/edit-service.com
     DashboardComponent,
     ListUsersComponent,
     EditUserComponent,
-    EditServiceComponent
+    EditServiceComponent,
+    ProviderServicesComponent
     
   ],
   imports: [
