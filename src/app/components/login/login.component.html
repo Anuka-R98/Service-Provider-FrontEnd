@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh">
+  
+      <div class="col-md-12">
+        <div class="card card-container">
+          <h1 style="text-align: center; padding-bottom: 20px;">Sign In</h1>
+          <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
+  
+          <form #loginForm="ngForm" (ngSubmit)="login(loginForm)" name="form" #f="ngForm" novalidate>
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" ngModel class="form-control" name="username" id="userName" placeholder="Enter your username"
+                required minlength="3" #username="ngModel">
+              <div *ngIf="username.errors && (username.dirty || username.touched)" class="alert alert-danger">
+                <div [hidden]="!username.errors.required">
+                  Username is required
+                </div>
+                <div [hidden]="!username.errors.minlength">
+                  Username must be at least 3 characters long
+                </div>
+              </div>
+            </div>
+  
+            <div class="form-group mb-5">
+              <label for="password">Password</label>
+              <input type="password" ngModel class="form-control" name="password" required minlength="6" #password="ngModel">
+              <div *ngIf="password.errors && (password.dirty || password.touched)" class="alert alert-danger">
+                <div [hidden]="!password.errors.required">
+                  Password is required
+                </div>
+                <div [hidden]="!password.errors.minlength">
+                  Password must be at least 6 characters long
+                </div>
+              </div>
+            </div>
+  
+            <div class="form-group">
+              <button class="btn btn-primary btn-block mb-5">Login</button>
+            </div>
+          </form>
+  
+        </div>
+      </div>
+  
+    </div>
+  </div>

@@ -1,0 +1,24 @@
+.navbar {
+    background: linear-gradient(to right, #13568c, #20B2AA);
+  }
+  
+  .btn-success {
+    background-color: #43d35b;
+    border-color: #00FF00;
+  }
+  
+  .btn-danger {
+    background-color: #FFA500;
+    border-color: #FFA500;
+  }
+
+  .navbar-nav .nav-link.active {
+    margin-right: 10px;
+  }
+  .nav-link {
+    margin-right: 10px;
+  }
+  
+  .nav-item:last-child .nav-link {
+    margin-right: 0;
+  }

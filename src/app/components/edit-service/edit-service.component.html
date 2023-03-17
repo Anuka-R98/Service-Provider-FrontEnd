@@ -1,0 +1,50 @@
+
+
+<div class="col-md-12">
+    <div class="card card-container">
+      <h1 style="description-align: center; padding-bottom: 20px;">Edit Service Details</h1>
+          <form [formGroup]="service">
+            <div class="form-group">
+              <label for="name">Service Name</label>
+              <input type="description" id="name" name="name" class="form-control" formControlName="name" placeholder="Enter name" [(ngModel)]="service1.name">
+              <div *ngIf="service.get('name').invalid && (service.get('name').dirty || service.get('name').touched)" class="alert alert-danger">
+                <div *ngIf="service.get('name').errors.required">Name is required</div>
+                <div *ngIf="service.get('name').errors.minlength">Name must be at least 5 characters long</div>
+                <div *ngIf="service.get('name').errors.maxlength">Name cannot be more than 50 characters long</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="description">Brief description about your service</label>
+              <input type="description" class="form-control" formControlName="description" placeholder="Enter description" [(ngModel)]="service1.description">
+              <div *ngIf="service.get('description').invalid && (service.get('description').dirty || service.get('description').touched)" class="alert alert-danger">
+                <div *ngIf="service.get('description').errors.required">Description is required</div>
+                <div *ngIf="service.get('description').errors.minlength">Description must be at least 10 characters long</div>
+                <div *ngIf="service.get('description').errors.maxlength">Description cannot be more than 500 characters long</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phoneNo">Contact Phone No</label>
+              <input type="description" class="form-control" formControlName="phoneNo" placeholder="Enter Phone number" [(ngModel)]="service1.phoneNo">
+              <div *ngIf="service.get('phoneNo').invalid && (service.get('phoneNo').dirty || service.get('phoneNo').touched)" class="alert alert-danger">
+                <div *ngIf="service.get('phoneNo').errors.required">Phone number is required</div>
+                <div *ngIf="service.get('phoneNo').errors.pattern">Invalid Phone number format</div>
+              </div>
+            </div>
+            <div class="form-group" *ngIf="userAuthService.roleMatch(['ROLE_ADMIN'])">
+                <label for="averageRating">Change average rating value</label>
+                <input type="averageRating" class="form-control" formControlName="averageRating" placeholder="Enter averageRating" [(ngModel)]="service1.averageRating">
+                <div *ngIf="service.get('averageRating').invalid && (service.get('averageRating').dirty || service.get('averageRating').touched)" class="alert alert-danger">
+                  <div *ngIf="service.get('averageRating').errors.pattern">averageRating must be between 0 and 10</div>
+                </div>
+              </div>
+            <br>
+              <button
+                type="button"
+                class="btn btn-primary btn-lg"
+                (click)="saveService()"> 
+                Save
+            </button>
+          </form>
+      </div>  
+
+      

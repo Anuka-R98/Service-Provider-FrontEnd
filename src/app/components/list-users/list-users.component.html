@@ -1,0 +1,136 @@
+<div class="container">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                  <!-- Table header -->
+                    <div class="col-xs-6">
+                        <h2 style="text-align: center;">Manage Users</h2>
+                    </div>
+                    <div class="col-xs-6">
+                        <a class="btn btn-success" data-toggle="modal" routerLink="/add-user" style="background-color: #12c15b;">
+                            <i class="material-icons">&#xE147;</i>
+                            <span>Add New User</span>
+                        </a>					
+                        <div class="hint-text">Showing <b>{{ userList.length }}</b> entries</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search bar -->
+            <div class="form-outline mb-4">
+              <input type="search" class="form-control" id="datatable-search-input" [(ngModel)]="searchTerm">
+              <label class="form-label" for="datatable-search-input">Search</label>
+            </div>
+
+            <table class="table  table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <!-- User details -->
+                    <tr *ngFor="let user of filteredUsers()" style="font-weight:500">
+                        <td>{{user.username}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.phoneNo}}</td>
+                        <!-- <td *ngFor="let role of user.roles">{{ role.name }}</td> -->
+                        <td [ngClass]="{'admin': user.roles[0].name === 'ROLE_ADMIN', 
+                        'user': user.roles[0].name === 'ROLE_USER', 
+                        'provider': user.roles[0].name === 'ROLE_SERVICE_PROVIDER'}"
+                        >
+                        <li *ngFor="let role of user.roles">{{ role.name }}</li>
+                        </td>
+                        <!-- Exclude admin -->
+                        <td *ngIf="isUserOrProvider(user)">
+                            <a href="#updateModal" class="edit" data-bs-toggle="modal" (click)="onclickEdit(user)">
+                                <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+                            </a>
+                            <a href="#deleteModal" class="delete" data-bs-toggle="modal" (click)="onclickDelete(user.id)">
+                                <i class="material-icons" data-toggle="modal" title="Delete">&#xE872;</i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>  
+            </table>
+            <div class="clearfix">
+                <div class="hint-text">Showing <b>{{ userList.length }}</b> entries</div>
+            </div>
+        </div>
+    </div>        
+</div>
+
+<!-- Update Modal -->
+<div
+    class="modal fade"
+    id="updateModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Update User</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <app-edit-user [user1]="editingUser"></app-edit-user>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Modal -->
+  <div
+    class="modal fade"
+    id="deleteModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Delete User</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">Do You Want To Delete User?</div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="deleteUser()"
+            data-bs-dismiss="modal"
+          >
+            Delete
+          </button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">

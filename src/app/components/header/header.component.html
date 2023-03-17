@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/home">Service Provider</a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/home">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/admin"
+          *ngIf="userAuthService.roleMatch(['ROLE_ADMIN'])"
+          >Admin Dashboard</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/profile"
+          *ngIf="userAuthService.roleMatch(['ROLE_USER'])"
+          >User Profile</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/provider"
+          *ngIf="userAuthService.roleMatch(['ROLE_SERVICE_PROVIDER'])"
+          >Service Provider Profile</a>
+        </li>
+        
+
+      </ul>
+      <div class="navbar-nav">
+        <span class="nav-link active">
+          <i class="fas fa-user"></i>&nbsp;&nbsp;{{userAuthService.getUserName()}}</span>
+        <button *ngIf="!isLoggedIn()" type="button" class="btn btn-success" routerLink="/login">Login</button>
+        <button *ngIf="isLoggedIn()" type="button" class="btn btn-danger" (click)="logout()">Logout</button>
+        <li class="nav-item">
+        </li>
+      </div>
+  </div>
+  </div>
+</nav>
+
+<div class="p-0 text-center bg-dark" *ngIf="isLoggedIn()">
+  <p style="color: aliceblue; background-color: #363636;">The current date and time is : {{currentDate | date: 'medium'}}</p>
+</div>
+  <!-- Jumbotron -->  
+<div class="p-3 text-center bg-light" *ngIf="router.url === '/home'">
+  <h2 class="mb-3">Service Provider</h2>
+  <h4 class="mb-4">Please log in to the system to use or post services</h4>
+  <a class="btn btn-primary" routerLink="/login"
+    role="button">LOG IN NOW</a>
+</div>
+<!-- Jumbotron -->

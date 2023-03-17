@@ -1,0 +1,95 @@
+
+
+<div class="col-md-12">
+    <div class="card card-container">
+      <h1 style="text-align: center; padding-bottom: 20px;">Edit User Details</h1>
+      <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
+          <form [formGroup]="user">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" id="username" name="username" class="form-control" formControlName="username" placeholder="Enter username" [(ngModel)]="user1.username">
+              <div *ngIf="user.get('username').invalid && (user.get('username').dirty || user.get('username').touched)" class="alert alert-danger">
+                <div *ngIf="user.get('username').errors.required">Username is required</div>
+                <div *ngIf="user.get('username').errors.minlength">Username must be at least 3 characters long</div>
+                <div *ngIf="user.get('username').errors.maxlength">Username cannot be more than 20 characters long</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" formControlName="password" placeholder="Enter password">
+              <div *ngIf="user.get('password').invalid && (user.get('password').dirty || user.get('password').touched)" class="alert alert-danger">
+                <div *ngIf="user.get('password').errors.required">Password is required</div>
+                <div *ngIf="user.get('password').errors.minlength">Password must be at least 6 characters long</div>
+                <div *ngIf="user.get('password').errors.maxlength">Password cannot be more than 12 characters long</div>
+                <div *ngIf="user.get('password').errors.pattern">Password must contain at least one lowercase letter, one uppercase letter, one number, and one special character (@$!%*?&)</div>
+              </div>
+            </div>
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" class="form-control" formControlName="confirmPassword" placeholder="Confirm password">
+            <div *ngIf="user.get('confirmPassword').invalid && (user.get('confirmPassword').dirty || user.get('confirmPassword').touched)" class="alert alert-danger">
+              <div *ngIf="user.get('confirmPassword').errors.required">Confirm password is required</div>
+              <div *ngIf="user.get('confirmPassword').value !== user.get('password').value">Passwords do not match</div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" formControlName="email" placeholder="Enter email" [(ngModel)]="user1.email">
+              <div *ngIf="user.get('email').invalid && (user.get('email').dirty || user.get('email').touched)" class="alert alert-danger">
+                <div *ngIf="user.get('email').errors.required">Email is required</div>
+                <div *ngIf="user.get('email').errors.pattern">Email must be in a valid format</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phoneNo">Phone Number</label>
+              <input type="text" class="form-control" formControlName="phoneNo" placeholder="Enter Phone number" [(ngModel)]="user1.phoneNo">
+              <div *ngIf="user.get('phoneNo').invalid && (user.get('phoneNo').dirty || user.get('phoneNo').touched)" class="alert alert-danger">
+                <div *ngIf="user.get('phoneNo').errors.required">Phone number is required</div>
+                <div *ngIf="user.get('phoneNo').errors.pattern">Invalid Phone number format</div>
+              </div>
+            </div>
+
+            <div class="form-group" *ngIf="userAuthService.roleMatch(['ROLE_ADMIN'])">
+              <label for="role">User Role</label><br>
+              <div class="form-check form-check-inline">
+                <input 
+                 class="form-check-input" 
+                 type="radio" 
+                 id="user" 
+                 value="user" 
+                 formControlName="role"
+                 [checked]="user1.roles && user1.roles[0].name == 'ROLE_USER'">
+                <label class="form-check-label" for="user">User</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input 
+                 class="form-check-input" 
+                 type="radio" 
+                 id="serviceProvider" 
+                 value="provider" 
+                 formControlName="role" 
+                 [checked]="user1.roles && user1.roles[0].name == 'ROLE_SERVICE_PROVIDER'">
+                <label class="form-check-label" for="serviceProvider">Service Provider</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input 
+                 class="form-check-input" 
+                 type="radio" 
+                 id="admin" 
+                 value="admin" 
+                 formControlName="role"
+                 [checked]="user1.roles && user1.roles[0].name == 'ROLE_ADMIN'">
+                <label class="form-check-label" for="admin">Admin</label>
+              </div>
+              <div *ngIf="user.get('role').invalid && (user.get('role').dirty || user.get('role').touched)" class="alert alert-danger">
+                <div *ngIf="user.get('role').errors.required">User role is required</div>
+              </div>
+            </div><br>
+              <button
+              type="button"
+              class="btn btn-primary btn-lg"
+              (click)="saveUser()"> 
+              Save
+            </button>
+          </form>
+      </div>  
+
+      

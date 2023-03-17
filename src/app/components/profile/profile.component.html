@@ -1,0 +1,85 @@
+
+
+        <section class="vh-100" style="background-color: #f4f5f7;">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                  <h1 style="text-align: center;">User Profile</h1>
+                  <div class="col col-lg-8 mb-4 mb-lg-5">
+                  <div class="card mb-3" style="border-radius: .5rem;">
+                    <div class="row g-0">
+                      <div class="col-md-4 gradient-custom text-center text-white"
+                        style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                        <i class="fas fa-user-circle fa-5x my-5"></i>
+                        <h5>{{username}}</h5>
+                        <p>{{role}}</p>
+                        <i class="far fa-edit mb-5" data-bs-toggle="modal" href="#updateModal"></i>
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body p-4">
+                          <h6>Information</h6>
+                          <hr class="mt-0 mb-4">
+                          <div class="row pt-1">
+                            <div class="col-6 mb-3">
+                              <h6>Email</h6>
+                              <p class="text-muted">{{email}}</p>
+                            </div>
+                            <div class="col-6 mb-3">
+                              <h6>Phone</h6>
+                              <p class="text-muted">{{phoneNo}}</p>
+                            </div>
+                          </div>
+                          <h6>Services and Ratings</h6>
+                          <hr class="mt-0 mb-4">
+                          <div class="row pt-1">
+                            <div class="col-6 mb-3">
+                              <h6>Services</h6>
+                              <p class="text-muted">Lorem ipsum</p>
+                            </div>
+                            <div class="col-6 mb-3">
+                              <h6>Ratings</h6>
+                              <p class="text-muted">Dolor sit amet</p>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-start">
+                            <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
+                            <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
+                            <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Update Modal -->
+          <div
+            class="modal fade"
+            id="updateModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Update User</h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <app-edit-user [user1]="user"></app-edit-user>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+          </div>  

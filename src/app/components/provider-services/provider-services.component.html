@@ -1,0 +1,135 @@
+<div class="container">
+  <div class="d-flex justify-content-center align-items-center" style="height: 100vh; margin-top: -100px;">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                  <!-- Table header -->
+                    <div class="col-xs-6">
+                        <h2 style="text-align: center;">Manage Your Services</h2>
+                    </div>
+                    <div class="col-xs-6">
+                        <a class="btn btn-success" data-toggle="modal" routerLink="/add-service" style="background-color: #12c15b;">
+                            <i class="material-icons">&#xE147;</i>
+                            <span>Add New Service</span>
+                        </a>					
+                        <div class="hint-text">Showing <b>{{ ServiceList.length }}</b> entries</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search bar -->
+            <div class="form-outline mb-4">
+              <input type="search" class="form-control" id="datatable-search-input" [(ngModel)]="searchTerm">
+              <label class="form-label" for="datatable-search-input">Search</label>
+            </div>
+
+            <table class="table  table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th></th>
+                        <th style="padding-left: 80px">Description</th>
+                        <th>Average Rating</th>
+                        <th>Rated / Unrated</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <!-- Service details -->
+                    <tr *ngFor="let service of filteredServices()" style="font-weight:500">
+                        <td>{{service.name}}</td>
+                        <td></td>
+                        <td>{{service.description}}</td>
+                        <td style="padding-left: 55px">{{service.averageRating}}</td>
+                        <td>
+                            <span *ngIf="service.averageRating > 0" style="color: #37cd6b; padding-left: 30px;">Rated</span>
+                            <span *ngIf="service.averageRating == 0" style="color: #f11d1d; padding-left: 30px;">Unrated</span>
+                        </td>
+                        <td>
+                            <a href="#updateModal" class="edit" data-bs-toggle="modal" (click)="onclickEdit(service)">
+                                <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+                            </a>
+                            <a href="#deleteModal" class="delete" data-bs-toggle="modal" (click)="onclickDelete(service.id)">
+                                <i class="material-icons" data-toggle="modal" title="Delete">&#xE872;</i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>  
+            </table>
+            <div class="clearfix">
+                <div class="hint-text">Showing <b>{{ ServiceList.length }}</b> entries</div>
+            </div>
+        </div>
+    </div>        
+</div>
+
+<!-- Update Modal -->
+<div
+    class="modal fade"
+    id="updateModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Update Service Detials</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <app-edit-service [service1]="editingService"></app-edit-service>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Modal -->
+  <div
+    class="modal fade"
+    id="deleteModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Service</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">Do You Want To Delete Service ?</div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="deleteService()"
+            data-bs-dismiss="modal"
+          >
+            Delete
+          </button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
