@@ -11,7 +11,6 @@ import { ToastrService } from 'ngx-toastr';
 export class ListUsersComponent implements OnInit {
 
   userList!: User[];
-
   searchTerm: string = '';
 
   editingUser: any = {
@@ -39,6 +38,12 @@ export class ListUsersComponent implements OnInit {
     this.userService.getUsers().subscribe((response: any) => {
       this.userList = response;
     });
+  }
+
+  filteredUsers() {
+    return this.userList.filter(user => 
+      user.username.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
   }
 
   deleteUser() {

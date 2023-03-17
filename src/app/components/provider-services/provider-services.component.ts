@@ -12,13 +12,14 @@ import { UserAuthService } from 'src/app/services/user-auth.service';
 export class ProviderServicesComponent implements OnInit {
 
   ServiceList!: Service[];
+  searchTerm: string = '';
   deletingServiceId: string;
 
   editingService: any = {
     id: '',
     name: '',
     description: '',
-    averageRating: '',
+    averageRating: ''
   };
 
   constructor(
@@ -36,6 +37,12 @@ export class ProviderServicesComponent implements OnInit {
     this.serviceService.getAllServicesForUser(userId).subscribe((response: any) => {
     this.ServiceList = response;
     });
+  }
+
+  filteredServices() {
+    return this.ServiceList.filter(service => 
+      service.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
   }
 
   deleteService() {

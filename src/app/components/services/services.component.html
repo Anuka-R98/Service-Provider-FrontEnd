@@ -15,10 +15,10 @@
               <p class="card-text">{{ service.description }}</p>
             </div>
             <div class="card-footer">
-              <small class="text-muted">Last updated 3 mins ago</small>
+              <small class="text-muted">Ratings : {{ service.averageRating }} out of 10</small>
             </div>
             <div class="card-effect">
-              <button class="btn btn-link">View</button>
+              <button class="btn btn-link" [routerLink]="['/view-service', service.id]">View</button>
             </div>
           </div>
         </div>

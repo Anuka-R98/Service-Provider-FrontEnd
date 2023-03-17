@@ -19,7 +19,7 @@
 
             <!-- Search bar -->
             <div class="form-outline mb-4">
-              <input type="search" class="form-control" id="datatable-search-input">
+              <input type="search" class="form-control" id="datatable-search-input" [(ngModel)]="searchTerm">
               <label class="form-label" for="datatable-search-input">Search</label>
             </div>
 
@@ -35,7 +35,7 @@
                 </thead>
                 <tbody>
                   <!-- User details -->
-                    <tr *ngFor="let user of userList" style="font-weight:500">
+                    <tr *ngFor="let user of filteredUsers()" style="font-weight:500">
                         <td>{{user.username}}</td>
                         <td>{{user.email}}</td>
                         <td>{{user.phoneNo}}</td>

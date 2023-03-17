@@ -1,0 +1,110 @@
+
+
+.card {
+    background: linear-gradient(to right bottom, rgba(101, 246, 229, 0.169), rgba(227, 253, 133, 0.338));
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.card-body {
+    font-size: 1.2rem;
+}
+
+.col-md-4 {
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    padding: 2rem;
+}
+
+.col-md-8 {
+    padding: 2rem;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.card .fa-edit:hover {
+    transform: scale(1.6);
+}
+
+/* Modal styles */
+.modal-dialog {
+    max-width: 800px;
+    border-radius: 30px;
+}
+
+.modal .modal-header,
+.modal .modal-body,
+.modal .modal-footer {
+    padding: 20px 30px;
+}
+
+.modal .modal-content {
+    border-radius: 3px;
+}
+
+.modal .modal-footer {
+    background: #ecf0f1;
+    border-radius: 0 0 3px 3px;
+}
+
+.modal .modal-title {
+    display: inline-block;
+}
+
+.modal .form-control {
+    border-radius: 2px;
+    box-shadow: none;
+    border-color: #dddddd;
+}
+
+.modal textarea.form-control {
+    resize: vertical;
+}
+
+.modal .btn {
+    border-radius: 2px;
+    min-width: 100px;
+}
+
+.modal form label {
+    font-weight: normal;
+}
+
+hr {
+    height: 1px;
+    border: none;
+    background-color: #5d5858;
+    margin: 1rem 0;
+  }
+
+  .btn-primary {
+    font-size: 18px;
+    font-weight: normal;
+    padding: 10px 30px;
+    border-radius: 5px;
+    background-color: #52d3b3c7;
+    border: none;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+  }
+  
+  .btn-primary:hover {
+    background-color: #fca80d;
+    border-color: #FFA500;
+  }
+
+  .red {
+  color: red;
+}
+
+.yellow {
+  color: yellow;
+}
+
+.green {
+  color: green;
+}

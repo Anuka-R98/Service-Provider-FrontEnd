@@ -1,11 +1,12 @@
 <div class="container">
+  <div class="d-flex justify-content-center align-items-center" style="height: 100vh; margin-top: -100px;">
     <div class="table-responsive">
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
                   <!-- Table header -->
                     <div class="col-xs-6">
-                        <h2 style="text-align: center;">Manage Services</h2>
+                        <h2 style="text-align: center;">Manage Your Services</h2>
                     </div>
                     <div class="col-xs-6">
                         <a class="btn btn-success" data-toggle="modal" routerLink="/add-service" style="background-color: #12c15b;">
@@ -19,7 +20,7 @@
 
             <!-- Search bar -->
             <div class="form-outline mb-4">
-              <input type="search" class="form-control" id="datatable-search-input">
+              <input type="search" class="form-control" id="datatable-search-input" [(ngModel)]="searchTerm">
               <label class="form-label" for="datatable-search-input">Search</label>
             </div>
 
@@ -36,7 +37,7 @@
                 </thead>
                 <tbody>
                   <!-- Service details -->
-                    <tr *ngFor="let service of ServiceList" style="font-weight:500">
+                    <tr *ngFor="let service of filteredServices()" style="font-weight:500">
                         <td>{{service.name}}</td>
                         <td></td>
                         <td>{{service.description}}</td>
@@ -130,5 +131,5 @@
       </div>
     </div>
   </div>
-
+</div>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">

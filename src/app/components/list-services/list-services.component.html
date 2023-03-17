@@ -19,7 +19,7 @@
 
             <!-- Search bar -->
             <div class="form-outline mb-4">
-              <input type="search" class="form-control" id="datatable-search-input">
+              <input type="search" class="form-control" id="datatable-search-input" [(ngModel)]="searchTerm">
               <label class="form-label" for="datatable-search-input">Search</label>
             </div>
 
@@ -36,7 +36,7 @@
                 </thead>
                 <tbody>
                   <!-- Service details -->
-                    <tr *ngFor="let service of ServiceList" style="font-weight:500">
+                    <tr *ngFor="let service of filteredServices()" style="font-weight:500">
                         <td>{{service.name}}</td>
                         <td></td>
                         <td>{{service.description}}</td>
