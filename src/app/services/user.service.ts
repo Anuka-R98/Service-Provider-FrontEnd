@@ -2,15 +2,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { User } from '../model/User';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  PATH_OF_API = 'http://localhost:8080/api/auth';
-  PATH_OF_API_USER = 'http://localhost:8080/users';
-  PATH_OF_API_ADMIN = 'http://localhost:8080/admin';
+  PATH_OF_API = environment.apiBaseUser + 'api/auth';
+  PATH_OF_API_USER = environment.apiBaseUser + 'users';
+  PATH_OF_API_ADMIN = environment.apiBaseUser + 'admin';
   
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -19,7 +20,6 @@ export class UserService {
   constructor(
     private httpclient: HttpClient,
   ) {}
-
 
   login(loginData): Observable<any> {
     return this.httpclient.post(

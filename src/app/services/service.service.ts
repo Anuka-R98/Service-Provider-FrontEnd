@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Service } from '../model/Service';
 import { catchError, tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
 providedIn: 'root'
@@ -10,9 +11,9 @@ providedIn: 'root'
 
 export class ServiceService {
 
-private PATH_OF_SERVICE = 'http://localhost:8080/home/services';
-private PATH_OF_SERVICE_2 = 'http://localhost:8080/home/admin/services';
-private PATH_OF_SERVICE_3 = 'http://localhost:8080/home/provider/services';
+  private PATH_OF_SERVICE = environment.apiBaseUrl + 'services';
+  private PATH_OF_SERVICE_2 = environment.apiBaseUrl +'admin/services';
+  private PATH_OF_SERVICE_3 = environment.apiBaseUrl + 'provider/services';
 
 constructor(private httpClient: HttpClient) { }
 
@@ -66,19 +67,4 @@ deleteService(id: string) {
   return this.httpClient.delete(`${this.PATH_OF_SERVICE}/${id}`);
 }
 
-// getServiceById(id: string): Observable<Service> {
-// return this.http.get<Service>(${this.baseUrl}/id/${id});
-// }
-
-// createService(service: Service): Observable<Service> {
-// return this.http.post<Service>(${this.baseUrl}, service);
-// }
-
-// updateService(id: string, service: Service): Observable<Service> {
-// return this.http.put<Service>(${this.baseUrl}/${id}, service);
-// }
-
-// deleteService(id: string): Observable<any> {
-// return this.http.delete(${this.baseUrl}/${id}, { responseType: 'text' });
-// }
 }

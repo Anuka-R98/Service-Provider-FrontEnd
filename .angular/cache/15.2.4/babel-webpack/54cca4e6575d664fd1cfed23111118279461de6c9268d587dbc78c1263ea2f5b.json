@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const environment = {\n  production: false,\n  apiBaseUser: 'http://localhost:8080/',\n  apiBaseUrl: 'http://localhost:8080/home/'\n};","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

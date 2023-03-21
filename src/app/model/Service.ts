@@ -1,5 +1,4 @@
 
-import { Rating } from './Rating';
 
 export interface Service {
     id?: string;
@@ -9,5 +8,4 @@ export interface Service {
     phoneNo: string;
     userId?: string;
 
-    // ratings?: Rating[];
   }

@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { Rating } from '../model/Rating';
 
 @Injectable({
@@ -9,7 +10,7 @@ import { Rating } from '../model/Rating';
 })
 export class RatingService {
 
-  private PATH_OF_RATING = 'http://localhost:8080/home/services/ratings';
+  private PATH_OF_RATING = environment.apiBaseUrl + 'services/ratings';
 
   constructor(private httpClient: HttpClient) { }
 
