@@ -1,10 +1,17 @@
-<div class="container">
+<div class="p-3 text-center bg-light" >
+    <h2 class="mb-3">Wellcome {{userName}}</h2>
+    <h4 class="mb-4">You have log into the system as User</h4>
+  </div>
+  <div class="container">
     <div class="d-flex justify-content-center align-items-center" style="height: 100vh">
-<div class="container mt-5">
-    <div class="card text-center" style="padding: 20px; color: red;">
-        <h1>You are User</h1>
-        <h1>{{message}}</h1>
+      <section style="margin-top: 70px;">
+      <div class="tile">
+            <input type="checkbox" name="option" id="option1">
+            <label for="option1" routerLink="/profile">
+              <i class="fas fa-user"></i>
+                <h6>MANAGE PROFILE</h6>
+            </label>
+        </div>
+    </section>
     </div>
-</div>
-    </div>
-</div>
+  </div>
