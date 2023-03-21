@@ -99,7 +99,7 @@ export class EditUserComponent implements OnInit {
           console.log(existingUser);
           console.log(response);
             this.showAlert = true;
-            this.toastr.success(`User updated successfully!`, 'Success');
+            this.toastr.success(`User updated successfully!`, 'Success', { timeOut: 3000 });
           },error => {
             this.toastr.error('Error updating user!', 'Error')
             console.log(error)});
